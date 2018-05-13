@@ -14,7 +14,7 @@ $secondary-color: rgba(252, 227, 138, 0.9);
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
-  background: linear-gradient(to bottom, $primary-color,$secondary-color) ,url('../img/background.jpg');
+  background: linear-gradient(to bottom, $primary-color,$secondary-color) ,url('../img/background.jpg') center no-repeat;
   background-position-y: center;
   background-repeat: no-repeat;
   padding-bottom: 230px;
@@ -282,7 +282,7 @@ a.main-link {
       width: 380px;
       height: 470px;
       text-align: center;
-      background: url('../img/Mathew.jpg');
+      background: url('../img/Mathew.jpg') center no-repeat;
     }
     
     &-item:nth-of-type(n+2) {
