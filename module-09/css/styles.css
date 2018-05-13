@@ -1,0 +1,341 @@
+* {
+    text-align: center;
+}
+a:hover {
+    text-decoration: none;
+}
+.container-fluid {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: url('../image/background.jpg') center no-repeat;
+}
+.container {
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 140px;
+}
+.nav {
+    margin-top: 20px;
+    margin-bottom: 115px;
+}
+.nav__item {
+    list-style: none;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+}
+.nav__item>a {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+.nav__item:hover {
+    border: 2px solid #ffffff;
+    border-radius: 40px; 
+    transition-duration: 200ms;
+}
+.nav__item:hover>a{
+    text-decoration: none;
+}
+div.col-12, .text-center {
+    margin-bottom: 40px;
+}
+a.logo {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0px;
+}
+a.logo:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+h2 {
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+h2+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #ffffff;
+    width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+.button_red {
+    padding: 12px 48px;
+    border: 3px solid #ff4e50;
+    background-color: #ff4e50;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 40px;
+}
+.button_red:hover {
+    color: #ff4e50;
+    background-color: #ffffff;
+    border: 2px solid #ff4e50;
+    transition-duration: 200ms;
+    text-decoration: none;
+}
+.button_red:focus {
+    border-color: #ffffff; 
+    background-color: #ff4e50;
+    color: #ffffff;
+    text-decoration: none;
+}
+div.title {
+    margin-bottom: 0px;
+}
+div.section {
+    padding-top: 70px;
+    padding-bottom: 55px;
+}
+div.main {
+    background: none;
+}
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #333333;
+    font-size: 22px;
+}
+.menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0px;
+    margin: 30px;
+}
+img {
+    border-radius: 100%;
+    margin-bottom: 20px;
+}
+.menu-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+.icon {
+    width:40px;
+    height: 40px;
+    border-radius: 100%;
+}
+.tv {
+    background-color: #ff4e50;
+    background-image: url('../image/icon1.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 5px solid #ffffff;
+    position: absolute;
+    top: 38%;
+    left: 60%;
+}
+.lab {
+    background-color: #ffa507;
+    background-image: url('../image/icon2.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 5px solid #ffffff;
+    position: absolute;
+    top: 33%;
+    left: 60%;
+}
+.cup {
+    background-color: #1cd7ad;
+    background-image: url('../image/icon3.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 5px solid #ffffff;
+    position: absolute;
+    top: 37%;
+    left: 60%;
+}
+.plane {
+    background-color: #4e73db;
+    background-image: url('../image/icon4.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 5px solid #ffffff;
+    position: absolute;
+    top: 38%;
+    left: 60%;
+}
+h4 {
+    font-family: 'Montserrat-bold', sans-serif;
+    font-weight: bold;
+    color: #333333;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+p.info {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #333333;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+.menu-item:last-of-type {
+    margin-bottom: 0px;
+}
+a.more {
+    padding: 12px 73px;
+    border: 2px solid #ff4e50;
+    background-color: #ffffff;
+    color: #ff4e50;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+a.more:hover {
+    background-color: #ff4e50;
+    color: #ffffff;
+    transition-duration: 200ms;
+}
+@media all and (min-width: 768px) and (max-width: 992px) {
+    div.container {
+        width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 140px;
+    }
+    div .logo {
+        margin-top: 40px;
+    }
+    ul.nav {
+        margin-top: 30px;
+        margin-bottom: 150px;
+    }
+    h2 {
+        margin-bottom: 40px;
+        font-size: 52px;
+        width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h2+p {
+        font-size: 24px;
+        width: 410px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+    }
+    a.logo {
+        margin-right: auto;
+    }
+    div.section {
+        padding-bottom: 40px;
+    }
+    h3 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .button_red {
+        padding: 12px 15px;
+    }
+    a.more {
+        padding: 12px 40px;
+    }
+    ul.menu {
+        margin-top: 0px;
+    }
+    .lab {
+        top: 37%;
+        left: 58%;
+    }
+    .tv {
+        top: 37%;
+        left: 58%;
+    }
+    .cup {
+        top: 40%;
+        left: 58%;
+    }
+    .plane {
+        top: 37%;
+        left: 58%;
+    }
+}
+@media all and (min-width: 992px) {
+    div.container {
+        width: 940px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 140px;
+    }
+    div .logo {
+        margin-top: 40px;
+    }
+    ul.nav {
+        margin-top: 30px;
+        margin-bottom: 150px;
+        padding-right: 0px;
+    }
+    h2 {
+        margin-bottom: 40px;
+        font-size: 52px;
+        width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h2+p {
+        font-size: 24px;
+        width: 410px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+    }
+    h3 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    div.section {
+        padding-bottom: 40px;
+    }
+    .button_red {
+        padding: 12px 15px;
+    }
+    ul.menu {
+        margin-top: 0px;
+    }
+    a.more {
+        padding: 12px 40px;
+    }
+    .tv {
+        top: 33%;
+        left: 60%;
+    }
+    .lab {
+        top: 33%;
+        left: 62%;
+    }
+    .cup {
+        top: 33%;
+        left: 62%;  
+    }
+    .plane {
+        top: 30%;
+        left: 62%;
+    }
+
+}
