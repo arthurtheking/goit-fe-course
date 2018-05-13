@@ -352,7 +352,7 @@ a.main-link {
   }
 
   &-submenu:hover {
-    background: linear-gradient(to bottom,rgba(255, 153, 153, 0.9),rgba(252, 227, 138, 0.9)),url('../../img/Mathew.jpg') center no-repeat;
+    background: linear-gradient(to bottom,rgba(255, 153, 153, 0.9),rgba(252, 227, 138, 0.9)),url('../img/Mathew.jpg') center no-repeat;
     transform: translate(-2%, -2%);
     transition-duration: 200ms;
     transition-timing-function: linear; 
@@ -362,7 +362,7 @@ a.main-link {
 }
 
 .second:hover {
-  background: linear-gradient(to bottom,rgba(255, 153, 153, 0.9),rgba(252, 227, 138, 0.9)),url('../../img/Christopher.jpg') center no-repeat;
+  background: linear-gradient(to bottom,rgba(255, 153, 153, 0.9),rgba(252, 227, 138, 0.9)),url('../img/Christopher.jpg') center no-repeat;
   transform: translate(-2%, -2%);
   transition-duration: 200ms;
   transition-timing-function: linear; 
@@ -371,7 +371,7 @@ a.main-link {
 }
 
 .third:hover {
-  background: linear-gradient(to bottom,rgba(255, 153, 153, 0.9),rgba(252, 227, 138, 0.9)),url('../../img/Michael.jpg') center no-repeat;
+  background: linear-gradient(to bottom,rgba(255, 153, 153, 0.9),rgba(252, 227, 138, 0.9)),url('../img/Michael.jpg') center no-repeat;
   transform: translate(-2%, -2%);
   transition-duration: 200ms;
   transition-timing-function: linear; 
@@ -388,7 +388,7 @@ a.main-link {
   margin-bottom: 15px;
   
   &-item{
-    font-family: 'Montserrat', sans-serif;
+    font-family: $main-font
     font-weight: 400;
     text-transform: uppercase;
     color: #333333;
@@ -415,7 +415,7 @@ a.main-link {
   margin: 0;
   
   &-item{
-    font-family: 'Roboro', sans-serif;
+    font-family: $secondary-color;
     font-weight: 300;
     font-style: italic;
     color: #999999;
@@ -443,7 +443,7 @@ a.main-link {
   &-text{
     margin-top: 15px;
     margin-right: 3px;
-    font-family: 'Montserrat';
+    font-family: $main-font;
     font-size: 14px;
   }
   
@@ -451,7 +451,7 @@ a.main-link {
     margin-right: 523px;
     text-decoration: none;
     color: #ff9999;
-    font-family: 'Roboto';
+    font-family: $secondary-font;
     font-size: 14px;
     margin-top: 14px;
     line-height: 20px;
@@ -481,7 +481,7 @@ a.main-link {
     padding-top: 3px;
     padding-bottom: 3px;
     border: 1px solid #95e1d3;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $main-font;
     font-weight: 700;
     
     &:hover{
@@ -514,28 +514,28 @@ a.main-link {
   
   ::-webkit-input-placeholder {
     color: #e5e5e5;
-    font-family: 'Roboto', sans-serif;
+    font-family: $secondary-font;
     font-weight: 300;
     font-size: 15px;
   }
 
   ::-moz-placeholder {
     color: #e5e5e5;
-    font-family: 'Roboto', sans-serif;
+    font-family: $secondary-font;
     font-weight: 300;
     font-size: 15px;
   }
   
   :-moz-placeholder {
     color: #e5e5e5;
-    font-family: 'Roboto', sans-serif;
+    font-family: $secondary-font;
     font-weight: 300;
     font-size: 15px;
   }
 
   :-ms-input-placeholder {
     color: #e5e5e5;
-    font-family: 'Roboto', sans-serif;
+    font-family: $secondary-font;
     font-weight: 300;
     font-size: 15px;
   }
