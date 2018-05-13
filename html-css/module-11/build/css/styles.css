@@ -719,7 +719,7 @@ a.main-link:hover {
 }
 
 .section_staff-submenu:hover {
-  background: linear-gradient(to bottom, rgba(255, 153, 153, 0.9), rgba(252, 227, 138, 0.9)), url("../../img/Mathew.jpg") center no-repeat;
+  background: linear-gradient(to bottom, rgba(255, 153, 153, 0.9), rgba(252, 227, 138, 0.9)), url("../img/Mathew.jpg") center no-repeat;
   -webkit-transform: translate(-2%, -2%);
   transform: translate(-2%, -2%);
   transition-duration: 200ms;
@@ -730,7 +730,7 @@ a.main-link:hover {
 }
 
 .second:hover {
-  background: linear-gradient(to bottom, rgba(255, 153, 153, 0.9), rgba(252, 227, 138, 0.9)), url("../../img/Christopher.jpg") center no-repeat;
+  background: linear-gradient(to bottom, rgba(255, 153, 153, 0.9), rgba(252, 227, 138, 0.9)), url("../img/Christopher.jpg") center no-repeat;
   -webkit-transform: translate(-2%, -2%);
   transform: translate(-2%, -2%);
   transition-duration: 200ms;
@@ -741,7 +741,7 @@ a.main-link:hover {
 }
 
 .third:hover {
-  background: linear-gradient(to bottom, rgba(255, 153, 153, 0.9), rgba(252, 227, 138, 0.9)), url("../../img/Michael.jpg") center no-repeat;
+  background: linear-gradient(to bottom, rgba(255, 153, 153, 0.9), rgba(252, 227, 138, 0.9)), url("../img/Michael.jpg") center no-repeat;
   -webkit-transform: translate(-2%, -2%);
   transform: translate(-2%, -2%);
   transition-duration: 200ms;
