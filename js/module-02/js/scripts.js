@@ -119,25 +119,26 @@
 
 // Homework Task 1
 
-// let userInput;
-// const numbers = [userInput += 1];
-// let total = 0;
+let userInput;
+const numbers = [userInput += 1];
+let total = 0;
 
 
-// do {
-//   userInput = prompt('Введите число');
-//   numbers.push(parseInt(userInput));
+do {
+  userInput = prompt('Введите число');
+  numbers.push(parseInt(userInput));
 
-// } while ( userInput !== null );
-// numbers.pop();
+} while ( userInput !== null );
+numbers.pop();
 
-// console.log(numbers);
+console.log(numbers);
 
-// for ( i=1; i<numbers.length; i++ ) {
-//   total = total + numbers[i];
-// }
+for ( i=1; i<numbers.length; i++ ) {
+  total = total + numbers[i];
+}
 
-// console.log(total);
+console.log(total);
+alert(`Общая сумма чисел равна ${total}`);
 
 
 
