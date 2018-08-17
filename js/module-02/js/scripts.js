@@ -91,6 +91,24 @@
 //     alert('Вы восхитительны!');
 // };
 
+
+// Task 5
+
+// const min = 1;
+// const max = 100;
+
+
+// for (let i = 1; i <= 20; i++) {
+  
+//   if (i % 3 === 0) {
+//         console.log("Fizz");
+//   } else if (i % 5 === 0 && i % 3 !== 0) {
+//     console.log ( "Buzz");
+//   }
+//   console.log(i);
+// }
+
+
 // Task 6 
 
 /*
@@ -117,28 +135,44 @@
 
 // Task 7 
 
+// const string = "May the force be with you";
+// let longestWord = '';
+
+
+// let strSplit = string.split(' ');
+// console.log(strSplit);
+// for(let i = 0; i <= strSplit.length -1; i++){
+//     if(strSplit[i].length > longestWord.length){
+//         longestWord = strSplit[i];
+//     }
+// }
+//     console.log(longestWord);
+
+
+// Task 8
+
+
+
+
 // Homework Task 1
 
-let userInput;
-const numbers = [userInput += 1];
-let total = 0;
+// let userInput;
+// const numbers = [userInput += 1];
+// let total = 0;
 
 
-do {
-  userInput = prompt('Введите число');
-  numbers.push(parseInt(userInput));
+// do {
+//   userInput = prompt('Введите число');
+//   numbers.push(parseInt(userInput));
 
-} while ( userInput !== null );
-numbers.pop();
+// } while ( userInput !== null );
+// numbers.pop();
 
-console.log(numbers);
+// console.log(numbers);
 
-for ( i=1; i<numbers.length; i++ ) {
-  total = total + numbers[i];
-}
+// for ( i=1; i<numbers.length; i++ ) {
+//   total = total + numbers[i];
+// }
 
-console.log(total);
-alert(`Общая сумма чисел равна ${total}`);
-
-
-
+// console.log(total);
+// alert(`Общая сумма чисел равна ${total}`);
