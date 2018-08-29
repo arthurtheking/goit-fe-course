@@ -109,13 +109,13 @@ const guests = [
 ];
 
 
-// const getPropValues = (arr, prop) => arr.reduce((acc, x) => x.hasOwnProperty(prop) ? acc.concat(x.prop) : acc, []);
+const getPropValues = (arr, prop) =>
 // // Вызовы функции для проверки
-// console.log( getPropValues(guests, 'name') ); // ['Mango', 'Poly', 'Ajax', 'Chelsey']
+console.log( getPropValues(guests, 'name') ); // ['Mango', 'Poly', 'Ajax', 'Chelsey']
 
-// console.log( getPropValues(guests, "age") ); // [20, 18, 30, 45]
+console.log( getPropValues(guests, "age") ); // [20, 18, 30, 45]
 
-// console.log( getPropValues(guests, "isActive") ); // [true, false, true, false]
+console.log( getPropValues(guests, "isActive") ); // [true, false, true, false]
 
 
 // Homework
@@ -128,7 +128,7 @@ const guests = [
 /**
  * Получить массив имен (поле name) всех пользователей
  */
-const getAllNames = arr => arr.reduce((acc, x) => x.name? acc.concat(x.name): acc, []);
+const getAllNames = arr => arr.reduce((acc, x) => x.name ? acc.concat(x.name): acc, []);
 
 
                             
