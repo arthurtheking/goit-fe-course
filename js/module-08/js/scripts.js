@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gallery.insertAdjacentHTML('afterbegin', createFull(galleryItems[0]));
 
     const previewImg = gallery.querySelector('.previewImg');
-    previewImg.classList.add('clickElem');
+    previewImg.classList.add('clickElement');
   
     gallery.lastElementChild.addEventListener('click', (event) => {
         event.preventDefault();
@@ -228,9 +228,9 @@ document.addEventListener('DOMContentLoaded', () => {
       fullImg.setAttribute('src', datasetFullview);
       fullImg.setAttribute('alt', altFullview);
   
-      const clickElem = gallery.querySelector('.previewImg.clickElem');
-      clickElem.classList.remove('clickElem');
+      const clickElem = gallery.querySelector('.previewImg.clickElement');
+      clickElem.classList.remove('clickElement');
       
-      event.target.classList.add('clickElem');
+      event.target.classList.add('clickElement');
     });
 })  
