@@ -162,27 +162,50 @@ const timer = {
     id : null,
     startTime: null,
     delta : null,
+    isActive : false,
+    
     start() {
-        this.startTime = Date.now();
+        if(this.isActive) return;
+
+        this.isActive = true;
+        this.startTime = Date.now() - this.delta;
+        this.delta;
         this.id = setInterval(() => {
             const currentTime = Date.now();
-            delta = currentTime - this.startTime;
-            updateTime(delta);
+            this.delta = currentTime - this.startTime;
+            updateTime(this.delta);
         }, 100);    
     },
+
     stop() {
         clearInterval(this.id);
-        resetTime();
-        lapsReset();
-
+        this.isActive = false;
     },
+
+    clickButton() {
+        if(this.isActive) {
+            console.log('started');
+        } else {
+            // this.stop();
+        }
+    },
+
+    reset() {
+        this.stop();
+        lapsReset();
+        this.delta = 0;
+        updateTime(this.delta);
+        startBtn.textContent = 'Start';
+    },
+
     lap() {
+        
         let lap = document.createElement('li');
-        lap.innerHTML = delta;
+        lap.textContent = formatTime(this.delta);
         list.appendChild(lap);
         lap.setAttribute('class', 'lap');
-    }
-}
+    },
+};
 
 
 function updateTime (time) {
@@ -190,9 +213,7 @@ function updateTime (time) {
     clockFace.textContent = formattedTime;
 }
 
-function resetTime () {
-    clockFace.textContent = '00:00.0';
-}
+
 
 function formatTime (ms) {
     const date = new Date(ms);
@@ -206,6 +227,7 @@ function formatTime (ms) {
     return `${minutes}:${seconds}.${mseconds}`;
 }
 
+
 function lapsReset () {
     const laps = document.querySelectorAll('.lap');
     laps.forEach(lap => {
@@ -213,9 +235,19 @@ function lapsReset () {
     })
 }
 
+function clickButton () {
+    if(timer.isActive === false) {
+        timer.start();
+        startBtn.textContent = 'Pause';
+    } else {
+        timer.stop();
+        startBtn.textContent = 'Continue';
+    };
+}
 
-startBtn.addEventListener('click', timer.start.bind(timer));
-stopBtn.addEventListener('click', timer.stop.bind(timer));
+
+startBtn.addEventListener('click', clickButton);
+stopBtn.addEventListener('click', timer.reset.bind(timer));
 lapBtn.addEventListener('click', timer.lap.bind(timer));
 
 
