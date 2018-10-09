@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="getUsers">
+      <form class="getUsersForm" action="#">
+        <button class="getUsersBtn" type="submit">Get all users</button>
+      </form>
+      <table class="usersList"></table>
+    </div>
+    <div class="getUser">
+      <form class="getUserForm" action="#">
+        <input class="getUserId" type="text" name="id" placeholder="Enter user id" id="getUserId" required>
+        <input class="getUserBtn" type="submit" value="Get user by id" required>
+      </form>
+      <div class="gainedUser"></div>
+    </div>
+    <div class="setUser">
+      <form class="setUserForm" action="#">
+        <input class="setUserName" type="text" name="name" placeholder="Enter user name" id="setUsername" required>
+        <input class="setUserAge" type="text" name="age" placeholder="Enter user age" id="setUserAge" required>
+        <input class="setUserBtn" type="submit" value="Set user" required>
+      </form>
+      <div class="settedUser"></div>
+    </div>
+    <div class="removeUser">
+      <form class ="removeUserForm"action="#">
+        <input class="removeUserId" type="text" name="id" placeholder="Enter user id" id="getUserId" required>
+        <input class="deleteUserBtn" type="submit" value="Delete user by id" required>
+      </form>
+      <div class="deletedUser"></div>
+    </div>
+    <div class="updateUser">
+      <form  class ="updateUserForm" action="#">
+          <input class="updUserId" type="text" name="id" placeholder="Enter user id" required>
+        <input class="updUserName" type="text" name="name" placeholder="Enter user name" id="updateUsername" required>
+        <input class="updUserAge"
+         type="text" name="age" placeholder="Enter user age" id="updateUserAge" required>
+        <input class="updateUserBtn" type="submit" value="Update user" required>
+      </form>
+      <div class="updatedUser"></div>
+    </div>
+  </div>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
