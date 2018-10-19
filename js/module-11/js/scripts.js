@@ -112,8 +112,6 @@ const checkboxes = document.querySelectorAll('.js-form input[type=checkbox]');
 const list = document.querySelector('.laptops__list');
 const source = document.querySelector('#laptops-list-template').innerHTML.trim();
 const template = Handlebars.compile(source);
-// const markup = laptops.reduce((acc, laptop) => acc + template(laptop), '');
-// list.insertAdjacentHTML('afterbegin', markup)
 
 
 const clear = () => {
@@ -150,8 +148,6 @@ const handleSizeForm = (evt) => {
   
   list.innerHTML = markup;
 }
-
-
 
 form.addEventListener('submit', handleSizeForm);
 resetBtn.addEventListener('click', clear);
