@@ -104,11 +104,6 @@ const laptops = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
   };
 
-  let filter = {
-      size : [],
-      color : [],
-      release_date : []
-  }
 
 
 const form = document.querySelector('.js-form');
@@ -121,8 +116,16 @@ const template = Handlebars.compile(source);
 // list.insertAdjacentHTML('afterbegin', markup)
 
 
+const clear = () => {
+  window.location.reload();
+}
 
 const handleSizeForm = (evt) => {
+  let filter = {
+    size : [],
+    color : [],
+    release_date : []
+}  
 
   evt.preventDefault();
 
@@ -148,9 +151,6 @@ const handleSizeForm = (evt) => {
   list.innerHTML = markup;
 }
 
-const clear = (e) => {
-  window.location.reload();
-}
 
 
 form.addEventListener('submit', handleSizeForm);
