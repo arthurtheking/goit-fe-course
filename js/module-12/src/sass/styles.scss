@@ -1,0 +1,26 @@
+/*
+   Import partials below
+*/
+@import './normalize';
+
+
+
+.form-sect {
+    margin: 100px 0 50px 0;
+    text-align: center;
+}
+
+.link-cards-list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .link-card {
+        width: 50%;
+        background-color: #cfcfcf;
+        
+        img {
+            width: 100px;
+        }
+    }
+}
