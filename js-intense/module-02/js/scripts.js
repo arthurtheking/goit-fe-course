@@ -8,10 +8,9 @@ const refs = {
 
 do {
     refs.input = prompt('Enter your number');
-    refs.numbers.push(Number(refs.input));
-    if(refs.input === null) {
-        refs.numbers.pop();
-    };
+    if(refs.input !== null) {
+    refs.numbers.push(Number(refs.input))
+};
 } while (refs.input);
 
 for (num of refs.numbers) {
