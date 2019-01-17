@@ -1,9 +1,9 @@
 'Use strict'
 
 const refs = {
-    input : 0,
-    numbers : [],
-    total : 0
+    input: 0,
+    numbers: [],
+    total: 0
 };
 
 do {
