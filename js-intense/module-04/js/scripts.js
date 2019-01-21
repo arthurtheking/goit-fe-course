@@ -9,12 +9,13 @@ const PRIORITY_TYPES = {
 const notepad = {
     notes: [],
     getNotes() {
-        for(let note of this.notes) {};             // WORKS
+            // WORKS
         return this.notes;
     },
 
     saveNote(note) {
         this.notes.push(note);
+        return note;
     },
      
     findNoteById(id) {
@@ -49,12 +50,17 @@ const notepad = {
     },
 
     filterNotesByQuery(query) { 
+        const arr = [];
         for(let note of this.notes) {
             
-            if(note.title.toLowerCase().includes(query) || note.body.toLowerCase().includes(query)) {      //WORKS
-                return note;
-            };
+            if(note.title.toLowerCase().includes(query) || note.body.toLowerCase().includes(query) || note.title.toUpperCase().includes(query) || note.body.toUpperCase().includes(query)) {      //WORKS
+                arr.push(note);
+            } else {
+            
+            }
         };
+        return arr.length > 0 ? arr : null;
+
     },
 
     filterNotesByPriority(priority) {
@@ -64,7 +70,7 @@ const notepad = {
                 filteredNotes.push(note);
             };
         };
-        return(filteredNotes);
+        return filteredNotes;
     },
 };
 
