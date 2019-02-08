@@ -70,7 +70,7 @@ const notepad = {
             };
         };
         return filteredNotes;
-    },
+    }
 };
 
 
