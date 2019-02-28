@@ -150,6 +150,6 @@ const methods = {
     const sortedByFriends = users.sort((a, b) => a.friends.length - b.friends.length);
     const sortedNames = this.getAllNames(sortedByFriends);
     return sortedNames;
-  };
+  }
 };
 
