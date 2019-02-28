@@ -131,27 +131,25 @@ const methods = {
     return filteredByFriend;
   },
 
-    getUnicSkills(users) {
-      const skillsArr = users.reduce((allSkills, user) => {
-        allSkills.push(...user.skills);
+  getUnicSkills(users) {
+    const skillsArr = users.reduce((allSkills, user) => {
+      allSkills.push(...user.skills);
+      return allSkills;
+    }, []);
+    const unicArr = [];
+    skillsArr.map(el => {
+      if(!unicArr.includes(el)) {
+        unicArr.push(el)
+      }
+      unicArr.sort();
+    });
+    return unicArr
+  },
 
-        return allSkills;
-      }, []);
-
-      const unicArr = [];
-      skillsArr.map(el => {
-        if(!unicArr.includes(el)) {
-          unicArr.push(el)
-        }
-        unicArr.sort();
-      });
-      return unicArr
-    },
-
-    getNamesSortedByFriends(users) {
-      const sortedByFriends = users.sort((a, b) => a.friends.length - b.friends.length);
-      const sortedNames = this.getAllNames(sortedByFriends);
-      return sortedNames;
-    }
+  getNamesSortedByFriends(users) {
+    const sortedByFriends = users.sort((a, b) => a.friends.length - b.friends.length);
+    const sortedNames = this.getAllNames(sortedByFriends);
+    return sortedNames;
+  };
 };
 
