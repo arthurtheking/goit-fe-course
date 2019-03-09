@@ -206,8 +206,7 @@ class Notepad {
 
     noteBlock.append(content, footer);
     listItem.appendChild(noteBlock);
-
-    console.log(listItem)
+    
     return listItem
   };
 
