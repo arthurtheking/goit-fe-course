@@ -120,14 +120,23 @@ class Notepad {
   };
 
   filterNotesByPriority(priority) {
-      const filteredNotes = [];
+    const filteredNotes = [];
       for(let note of this.notes) {
           if(note.priority === priority) {        
               filteredNotes.push(note);
           };
       };
-      return filteredNotes;
+    return filteredNotes;
   };
+
+  getPriorityName (priorityId) {
+    const priorityArray = Object.values(Notepad.PRIORITIES);
+    for(let priority of priorityArray) {
+        if(priority.id === priorityId) {
+            return(priority.name);
+        };
+    };
+};
 
   createActionButton(action, iconType) {
     const button = document.createElement('button');
@@ -173,7 +182,7 @@ class Notepad {
 
     const notePriority = document.createElement('span');
     notePriority.classList.add('note__priority');
-    notePriority.textContent = `Priority ${priority}`;
+    notePriority.textContent = `Priority ${this.getPriorityName(priority)}`;
 
     // creating edit section
     const editSection = document.createElement('section');
@@ -219,6 +228,14 @@ class Notepad {
 const notepad = new Notepad(initialNotes);
 
 notepad.notes
+
+Notepad.PRIORITIES = {
+  0: { id: 0, value: 0, name: 'Low' },
+  1: { id: 1, value: 1, name: 'Normal' },
+  2: { id: 2, value: 2, name: 'High' },
+};
+
+
 const list = document.querySelector('.note-list');
 
 notepad.renderNoteItems(list, initialNotes);
