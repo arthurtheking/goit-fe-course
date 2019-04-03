@@ -154,111 +154,7 @@ class Notepad {
 
   // UI
   
-  addItemToList(listRef, item) {
-    const noteItem = this.createNoteItem(item)
 
-    listRef.appendChild(noteItem);
-  };
-
-  createActionButton(action, iconType) {
-    const button = document.createElement('button');
-    button.classList.add('action');
-    button.dataset.action = action;
-
-    const icon = document.createElement('i');
-    icon.classList.add('material-icons');
-    icon.classList.add('action__icon');
-    icon.textContent = iconType;
-
-    button.appendChild(icon);
-    return button;
-  };
-
-  createNoteItemContent(title, body) {
-
-    const noteContent = document.createElement('div');
-    noteContent.classList.add('note__content');
-
-    const noteTitle = document.createElement('h2');
-    noteTitle.classList.add('note__title');
-    noteTitle.textContent = title;
-
-    const noteBody = document.createElement('p');
-    noteBody.classList.add('note__body');
-    noteBody.textContent = body;
-    noteContent.append(noteTitle, noteBody);
-
-    return noteContent;
-  };
-
-  createNoteItemFooter(priority) {
-    const noteFooter = document.createElement('footer');
-    noteFooter.classList.add('note__footer');
-
-    // creating priority section
-    const prioritySection = document.createElement('section');
-    prioritySection.classList.add('note__section');
-
-    const decreaseButton = this.createActionButton(NOTE_ACTIONS.DECREASE_PRIORITY, ICON_TYPES.ARROW_DOWN);
-    const increaseButton = this.createActionButton(NOTE_ACTIONS.INCREASE_PRIORITY, ICON_TYPES.ARROW_UP);
-
-    const notePriority = document.createElement('span');
-    notePriority.classList.add('note__priority');
-    notePriority.textContent = `Priority ${Notepad.getPriorityName(priority)}`;
-
-    // creating edit section
-    const editSection = document.createElement('section');
-    editSection.classList.add('note__section');
-
-    const editButton = this.createActionButton(NOTE_ACTIONS.EDIT, ICON_TYPES.EDIT);
-    const deleteButton = this.createActionButton(NOTE_ACTIONS.DELETE, ICON_TYPES.DELETE);
-
-    // append buttons into section
-    prioritySection.append(decreaseButton, increaseButton, notePriority);
-    editSection.append(editButton, deleteButton);
-
-    // append sections into footer
-    noteFooter.append(prioritySection, editSection);
-
-    return noteFooter;
-  };
-
-  createNoteItem({id, title, body, priority}) {
-
-    const listItem = document.createElement('li');
-    listItem.classList.add('note-list__item');
-    listItem.dataset.id = id;
-
-    const noteBlock = document.createElement('div');
-    noteBlock.classList.add('note');
-
-    const content = this.createNoteItemContent(title, body);
-    const footer = this.createNoteItemFooter(priority);
-
-    noteBlock.append(content, footer);
-    listItem.appendChild(noteBlock);
-    
-    return listItem
-  };
-
-  removeListitem(event) {
-    const parentListItem = event.closest('.note-list__item');
-    const id = parentListItem.dataset.id;
-
-    this.deleteNote(id);
-    parentListItem.remove();
-  };
-
-  removeAllElementChildren(listRef) {
-    while(listRef.firstChild) {
-      listRef.removeChild(listRef.firstChild);
-    }
-  };
-
-  renderNoteItems(listRef, data) {
-    const listItems = data.map(item => this.createNoteItem(item));
-    listRef.append(...listItems);
-  };
 
 
   // HANDLERS
@@ -270,7 +166,7 @@ class Notepad {
       
       switch(action) {
         case NOTE_ACTIONS.DELETE:
-        notepad.removeListitem(target);
+        removeListitem(target);
 
         break;
       };
@@ -289,15 +185,15 @@ class Notepad {
 
     const savedItem = notepad.saveNote(titleInput.value, bodyInput.value);
 
-    notepad.addItemToList(refs.list, savedItem);
+    addItemToList(refs.list, savedItem);
     event.currentTarget.reset();
   };
 
   handleFormSearch(event) {
     const filtered = notepad.filterNotesByQuery(event.target.value);
 
-    notepad.removeAllElementChildren(refs.list);
-    notepad.renderNoteItems(refs.list, filtered);
+    removeAllElementChildren(refs.list);
+    renderNoteItems(refs.list, filtered);
   };
 };
 
@@ -310,7 +206,115 @@ Notepad.PRIORITIES = {
 
 
 const notepad = new Notepad(initialNotes);
-notepad.renderNoteItems(refs.list, initialNotes);
+
+
+const addItemToList = (listRef, item) => {
+  const noteItem = createNoteItem(item)
+
+  listRef.appendChild(noteItem);
+};
+
+const createActionButton = (action, iconType) => {
+  const button = document.createElement('button');
+  button.classList.add('action');
+  button.dataset.action = action;
+
+  const icon = document.createElement('i');
+  icon.classList.add('material-icons');
+  icon.classList.add('action__icon');
+  icon.textContent = iconType;
+
+  button.appendChild(icon);
+  return button;
+};
+
+const createNoteItemContent = (title, body) => {
+
+  const noteContent = document.createElement('div');
+  noteContent.classList.add('note__content');
+
+  const noteTitle = document.createElement('h2');
+  noteTitle.classList.add('note__title');
+  noteTitle.textContent = title;
+
+  const noteBody = document.createElement('p');
+  noteBody.classList.add('note__body');
+  noteBody.textContent = body;
+  noteContent.append(noteTitle, noteBody);
+
+  return noteContent;
+};
+
+const createNoteItemFooter = (priority) => {
+  const noteFooter = document.createElement('footer');
+  noteFooter.classList.add('note__footer');
+
+  // creating priority section
+  const prioritySection = document.createElement('section');
+  prioritySection.classList.add('note__section');
+
+  const decreaseButton = createActionButton(NOTE_ACTIONS.DECREASE_PRIORITY, ICON_TYPES.ARROW_DOWN);
+  const increaseButton = createActionButton(NOTE_ACTIONS.INCREASE_PRIORITY, ICON_TYPES.ARROW_UP);
+
+  const notePriority = document.createElement('span');
+  notePriority.classList.add('note__priority');
+  notePriority.textContent = `Priority ${Notepad.getPriorityName(priority)}`;
+
+  // creating edit section
+  const editSection = document.createElement('section');
+  editSection.classList.add('note__section');
+
+  const editButton = createActionButton(NOTE_ACTIONS.EDIT, ICON_TYPES.EDIT);
+  const deleteButton = createActionButton(NOTE_ACTIONS.DELETE, ICON_TYPES.DELETE);
+
+  // append buttons into section
+  prioritySection.append(decreaseButton, increaseButton, notePriority);
+  editSection.append(editButton, deleteButton);
+
+  // append sections into footer
+  noteFooter.append(prioritySection, editSection);
+
+  return noteFooter;
+};
+
+const createNoteItem = ({id, title, body, priority}) => {
+
+  const listItem = document.createElement('li');
+  listItem.classList.add('note-list__item');
+  listItem.dataset.id = id;
+
+  const noteBlock = document.createElement('div');
+  noteBlock.classList.add('note');
+
+  const content = createNoteItemContent(title, body);
+  const footer = createNoteItemFooter(priority);
+
+  noteBlock.append(content, footer);
+  listItem.appendChild(noteBlock);
+  
+  return listItem
+};
+
+const removeListitem = (event) => {
+  const parentListItem = event.closest('.note-list__item');
+  const id = parentListItem.dataset.id;
+
+  notepad.deleteNote(id);
+  parentListItem.remove();
+};
+
+const removeAllElementChildren = (listRef) => {
+  while(listRef.firstChild) {
+    listRef.removeChild(listRef.firstChild);
+  };
+};
+
+const renderNoteItems = (listRef, data) => {
+  const listItems = data.map(item => createNoteItem(item));
+  listRef.append(...listItems);
+};
+
+renderNoteItems(refs.list, initialNotes);
 
 
 // LISTENERS
