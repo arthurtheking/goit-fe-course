@@ -1,6 +1,6 @@
 import { NOTE_ACTIONS, ICON_TYPES } from "./utils/constants";
 import Notepad from "./notepad-model";
-import { notepad } from "./app";
+
 
 export const addItemToList = (listRef, item) => {
   const noteItem = createNoteItem(item)
