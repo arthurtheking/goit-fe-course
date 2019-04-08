@@ -88,15 +88,16 @@ export const createNoteItem = ({id, title, body, priority}) => {
     
   return listItem
 };
-  
-export const removeListitem = (event) => {
+
+export const findParentListItem = (event) => {
   const parentListItem = event.closest('.note-list__item');
-  const id = parentListItem.dataset.id;
-  
-  notepad.deleteNote(id);
+  return parentListItem;
+};
+
+export const removeParentListItem = (parentListItem) => {
   parentListItem.remove();
 };
-  
+
 export const removeAllElementChildren = (listRef) => {
   while(listRef.firstChild) {
     listRef.removeChild(listRef.firstChild);

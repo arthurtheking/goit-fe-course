@@ -1,8 +1,48 @@
 import Notepad from "./notepad-model";
-import { renderNoteItems } from "./view";
+import { renderNoteItems, addItemToList, findParentListItem, removeAllElementChildren, removeParentListItem } from "./view";
 import { initialNotes } from "./utils/initial-notes";
-import { refs } from "./utils/constants";
-import { handleButtonActions, handleFormSubmit, handleFormSearch } from "./handlers";
+import { refs, NOTE_ACTIONS } from "./utils/constants";
+
+
+export const handleButtonActions = (event) => {
+  
+  if(event.target.nodeName !== 'I') return;
+    const action = event.target.closest('button').dataset.action;
+      
+    switch(action) {
+      case NOTE_ACTIONS.DELETE:
+      
+      const parentListItem = findParentListItem(event.target);
+      notepad.deleteNote(parentListItem.dataset.id);
+      removeParentListItem(parentListItem);
+
+      break;
+    };
+};
+
+export const handleFormSubmit = (event) => {
+  event.preventDefault();
+
+  const [titleInput, bodyInput] = event.currentTarget.elements;
+
+  if(titleInput.value === '' || bodyInput.value === '') {
+    alert('Invalid Input');
+
+    return;
+  }
+
+  const savedItem = notepad.saveNote(titleInput.value, bodyInput.value);
+
+  addItemToList(refs.list, savedItem);
+  event.currentTarget.reset();
+};
+
+export const handleFormSearch = (event) =>  {
+  const filtered = notepad.filterNotesByQuery(event.target.value);
+
+  removeAllElementChildren(refs.list);
+  renderNoteItems(refs.list, filtered);
+};
 
 
 Notepad.PRIORITIES = {
