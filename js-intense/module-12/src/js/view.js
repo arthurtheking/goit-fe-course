@@ -7,10 +7,10 @@ export const createElementListItemMarkup = products => {
   const preMarkup = products.map(product => {
     
     if (product.priority < 3) {
-      product.priority = Notepad.getPriorityName(product.priority) 
-    }
-    
-    return product
+      product.priority = Notepad.getPriorityName(product.priority);
+    };
+
+    return product;
   });
   
   const markup = preMarkup.map(product =>  productTemplate((product))).join('');
@@ -37,7 +37,6 @@ export const renderNoteItems = (listRef, data) => {
   const listItems = data.map(item => createNoteItem(item));
   listRef.append(...listItems);
 };
-
 
 export const createActionButton = (action, iconType) => {
   const button = document.createElement('button');
