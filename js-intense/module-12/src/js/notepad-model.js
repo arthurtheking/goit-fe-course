@@ -15,7 +15,7 @@ export default class Notepad {
         };
     };
   
-    static generateUniqueId () {
+    static generateUniqueId() {
         const shortid = require('shortid');
         return shortid.generate();
     };

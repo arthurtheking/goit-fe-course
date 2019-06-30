@@ -4,14 +4,38 @@ import Notepad from "./notepad-model"
 
 
 export const createElementListItemMarkup = products => {
-  // const changedProducts = products.map(product =>)
-  const markup = products.map(product => 
-    // i must iterate an Object Product
-    // find priority
-    // change priority to the name of this priority 
-    productTemplate(product)).join('');
+  const preMarkup = products.map(product => {
+    
+    if (product.priority < 3) {
+      product.priority = Notepad.getPriorityName(product.priority) 
+    }
+
+    return product
+  });
+  
+
+  const markup = preMarkup.map(product =>  productTemplate((product))).join('');
+  
   return markup;
 };
+
+
+export const priorityChanger = (product) => {
+  const arr = Object.entries(product);
+  for (let key of arr) {
+    if(key[0] === 'priority') {
+      key[1] === Notepad.getPriorityName(key[1])
+    }
+  }
+  return arr;
+}
+
+export const newChanger = ({id = id, title = title, body = body, priority}) => {
+  
+  priority = Notepad.getPriorityName(priority);
+  
+  return priority;
+}
 
 export const findParentListItem = (event) => {
   const parentListItem = event.closest('.note-list__item');
