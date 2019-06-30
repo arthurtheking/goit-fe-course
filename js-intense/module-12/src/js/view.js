@@ -20,22 +20,22 @@ export const createElementListItemMarkup = products => {
 };
 
 
-export const priorityChanger = (product) => {
-  const arr = Object.entries(product);
-  for (let key of arr) {
-    if(key[0] === 'priority') {
-      key[1] === Notepad.getPriorityName(key[1])
-    }
-  }
-  return arr;
-}
+// export const priorityChanger = (product) => {
+//   const arr = Object.entries(product);
+//   for (let key of arr) {
+//     if(key[0] === 'priority') {
+//       key[1] === Notepad.getPriorityName(key[1])
+//     }
+//   }
+//   return arr;
+// }
 
-export const newChanger = ({id = id, title = title, body = body, priority}) => {
-  
-  priority = Notepad.getPriorityName(priority);
-  
-  return priority;
-}
+// export const newChanger = ({id = id, title = title, body = body, priority}) => {
+  // 
+  // priority = Notepad.getPriorityName(priority);
+  // 
+  // return priority;
+// }
 
 export const findParentListItem = (event) => {
   const parentListItem = event.closest('.note-list__item');
