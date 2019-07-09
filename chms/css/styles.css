@@ -79,9 +79,12 @@ body {
     transition: all 0.3s ease-in-out;
     z-index: 3;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    width: 400%;
-    justify-content: space-evenly;
+    width: 370%;
+    max-height: 510%;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .activated {
