@@ -28,8 +28,9 @@ const openSubNav = function(event) {
 const closeMenu = function(event) {
     if(event.target.nodeName == 'A' && event.target.className == 'subnav__item__link') {
         setTimeout(() => {
-            refs.sidebar.classList.toggle('active');    
-        }, 300);
+            refs.sidebar.classList.toggle('active');
+            refs.toggleBtn.classList.toggle('close-btn');
+        }, 200);
     }
 }
 
