@@ -5,7 +5,7 @@ import Notepad from "./notepad-model"
 
 export const createElementListItemMarkup = products => {
   const preMarkup = products.map(product => {
-    
+
     if (product.priority < 3) {
       product.priority = Notepad.getPriorityName(product.priority);
     };
