@@ -30,11 +30,13 @@ refs.list.insertAdjacentHTML('beforeend', markup);
       case NOTE_ACTIONS.DELETE:
         
       const parentListItem = findParentListItem(event.target);
-      notepad.deleteNote(parentListItem.dataset.id);
-      removeParentListItem(parentListItem);
-
-      notyf.success(NOTIFICATION_MESSAGES.NOTE_DELETED_SUCCESS);
-
+      notepad.deleteNote(parentListItem.dataset.id)
+      
+        .then(() => {
+          removeParentListItem(parentListItem);
+          notyf.success(NOTIFICATION_MESSAGES.NOTE_DELETED_SUCCESS);
+        });
+      
       break;
     };
 };
@@ -50,16 +52,18 @@ const handleFormSubmit = (event) => {
       return;
     }
   
-  const savedItem = notepad.saveNote(titleInput.value, bodyInput.value);
+  notepad.saveNote(titleInput.value, bodyInput.value)
+  .then(newNote => {
+    addItemToList(refs.list, newNote);
+    notyf.success(NOTIFICATION_MESSAGES.NOTE_ADDED_SUCCESS);
+  });
+  
+    localStorage.removeItem('note-title');
+    localStorage.removeItem('note-body');
+    event.currentTarget.reset();
+    
+    MicroModal.close();
 
-  addItemToList(refs.list, savedItem);
-  notyf.success(NOTIFICATION_MESSAGES.NOTE_ADDED_SUCCESS);
-  
-  localStorage.removeItem('note-title');
-  localStorage.removeItem('note-body');
-  event.currentTarget.reset();
-  
-  MicroModal.close();
 };
 
 

@@ -28,22 +28,35 @@ export default class Notepad {
     };
   
     saveNote(title, body) {  
-        const newNote = {
-          id: Notepad.generateUniqueId(),
-          title: title,
-          body: body,
-          priority: Notepad.getPriorityName(PRIORITY_TYPES.LOW),
-        }
+        return new Promise(resolve => {
+            setTimeout(() => {
+                const newNote = {
+                  id: Notepad.generateUniqueId(),
+                  title: title,
+                  body: body,
+                  priority: Notepad.getPriorityName(PRIORITY_TYPES.LOW),
+                }
+        
+                this._notes.push(newNote);
+                localStorage.setItem('my-notes', JSON.stringify(this._notes));
 
-        this._notes.push(newNote);
+                resolve(newNote);
+                
+            }, 300);
+        })
 
-        localStorage.setItem('my-notes', JSON.stringify(this._notes))
-        return newNote;
     };
   
     deleteNote(id) {
-        this._notes = this._notes.filter(note => note.id !== id);
-        localStorage.setItem('my-notes', JSON.stringify(this._notes))
+
+        return new Promise(resolve => {
+            setTimeout(() => {
+                this._notes = this._notes.filter(note => note.id !== id);
+                localStorage.setItem('my-notes', JSON.stringify(this._notes));
+                
+                resolve(this._notes);
+            }, 300);
+        })
     };
   
     findNoteById(id) {
