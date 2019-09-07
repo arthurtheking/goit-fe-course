@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "title": "title 1",
+      "body": "body 1",
+      "createdAt": "19:15:31",
+      "id": 1
+    },
+    {
+      "title": "title 1",
+      "body": "body 1",
+      "createdAt": "19:15:33",
+      "id": 3
+    }
+  ]
+}
