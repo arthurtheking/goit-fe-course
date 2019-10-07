@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lottery test</title>
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(16,16,149,1) 0%, rgba(13,13,140,1) 47%, rgba(7,7,127,1) 61%, rgba(0,0,110,1) 80%, rgba(0,0,110,1) 99%, rgba(0,0,110,1) 100%);
+            position: relative;
+            border-radius: 20px;
+        }
+
+        .close__btn {
+            padding: 0;
+            position: absolute;
+            top: 4%;
+            right: 3%;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition-duration: .2s;
+            outline: none;
+        }
+
+        .close__btn:active {
+            background-color: #cdcdcd;
+        }
+
+        .close__btn > img {
+            width: 100%;
+        }
+
+        .title {
+            display: block;
+            margin: 0;
+            font-family: 'Bowlby One', cursive;
+            font-size: 60px;
+            line-height: 65px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 12vh;
+            text-align: center; 
+        }
+
+        .letter {
+            text-shadow: 
+		-0   -1px 2px #000000,
+		 0   -1px 2px #000000,
+		-0    1px 2px #000000,
+		 0    1px 2px #000000,
+		-1px -0   2px #000000,
+		 1px -0   2px #000000,
+		-1px  0   2px #000000,
+		 1px  0   2px #000000,
+		-1px -1px 2px #000000,
+		 1px -1px 2px #000000,
+		-1px  1px 2px #000000,
+		 1px  1px 2px #000000,
+		-1px -1px 2px #000000,
+		 1px -1px 2px #000000,
+		-1px  1px 2px #000000,
+		 1px  1px 2px #000000;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .carousel {
+           position: relative;
+           transform-style: preserve-3d;
+           height: 300px;
+           width: 1100px;
+           margin-left: auto;
+           margin-right: auto;
+           transform: scale(0.5);
+        }
+
+        .wall {
+            border: 7px solid #6e6ee1;
+            border-radius: 20px;
+            background-color: #00006f;
+            width: 100%;
+            height: 540px;
+            box-shadow: 0px 0px 18px 1px rgba(0,0,0,1);
+        }
+        .box {
+            position: absolute;
+            transform-style: preserve-3d;
+            width: 150px;
+            height: 150px;
+            transform: scale(0.5) rotateX(10deg);  
+            top: 65%;
+        }
+
+        .box:nth-of-type(1) {
+            left: calc(50% - 470px);
+            animation: rolling1 10s ease-out -1s infinite;
+        }
+
+        .box:nth-of-type(2) {
+            left: calc(50% - 270px); 
+            animation: rolling2 10s ease-out -1s infinite;
+        }
+
+        .box:nth-of-type(3) {
+            left: calc(50% - 70px);
+            animation: rolling3 10s ease-out -1s infinite;
+        }
+
+        .box:nth-of-type(4) {
+            left: calc(50% - -130px);
+            animation: rolling4 10s ease-out -1s infinite;
+        }
+
+        .box:nth-of-type(5) {
+            left: calc(50% - -330px);
+            animation: rolling5 10s ease-out -1s infinite;
+        }
+
+        .box > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .box div:nth-child(2) {
+            top: 150px;
+            transform: translateY(-150px) rotateX(45deg);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10%;
+            border-radius: 20px;
+            background-color: #8091cf;
+        }
+
+        .slide:nth-of-type(1) {
+            transform: translateZ(200px) ;
+        }
+
+        
+        .slide:nth-of-type(2) {
+            transform: translateZ(-200px) rotateZ(180deg);
+        }
+        
+        .slide:nth-of-type(3) {
+            transform: translateY(200px) rotateX(90deg) rotateY(180deg);
+        }
+
+        .slide:nth-of-type(4) {
+            transform: translateY(-200px) rotateX(-90deg) rotateZ(180deg);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .play__btn {
+            display: inline-flex;
+            margin-left: 50%;
+            margin-top: 100px;
+            border: 2px solid #fff;
+            color: #fff;
+            border-radius: 50px;
+            background-color: #fd0001;
+            font-size: 18px;
+            padding: 15px 80px;
+            animation: shining 1s ease-out infinite;
+            transform: translateX(-50%);
+            outline: none;
+            text-transform: uppercase;
+        }
+
+        .play__btn:hover {
+            cursor: pointer;
+            box-shadow: 0px 0px 18px 1px rgba(255,255,255,1);
+            animation: none;
+            
+        }
+        
+        @keyframes rolling1 {
+            0% {
+                transform: perspective(1000px) rotateX(0deg);
+            }
+
+
+            50% {
+                transform: perspective(1000px) rotateX(2700deg);
+            }
+
+            95% {
+                transform: perspective(1000px) rotateX(2700deg);
+            }
+            
+
+            100% {
+                transform: perspective(1000px) rotateX(2690deg);
+            }
+        }
+
+        @keyframes rolling2 {
+            0% {
+                transform: perspective(1000px) rotateX(0deg);
+            }
+
+
+            57% {
+                transform: perspective(1000px) rotateX(2700deg);
+            }
+
+            95% {
+                transform: perspective(1000px) rotateX(2700deg);
+            }
+            
+
+            100% {
+                transform: perspective(1000px) rotateX(2690deg);
+            }
+        }
+
+        @keyframes rolling3 {
+            0% {
+                transform: perspective(1000px) rotateX(0deg);
+            }
+
+
+            65% {
+                transform: perspective(1000px) rotateX(2700deg);
+            }
+
+            95% {
+                transform: perspective(1000px) rotateX(2700deg);
+            }
+            
+
+            100% {
+                transform: perspective(1000px) rotateX(2690deg);
+            }
+        }
+
+        @keyframes rolling4 {
+            0% {
+                transform: perspective(1000px) rotateX(0deg);
+            }
+
+
+            70% {
+                transform: perspective(1000px) rotateX(2700deg);
+            }
+
+            95% {
+                transform: perspective(1000px) rotateX(2700deg);
+            }
+            
+
+            100% {
+                transform: perspective(1000px) rotateX(2690deg);
+            }
+        }
+
+        @keyframes rolling5 {
+            0% {
+                transform: perspective(1000px) rotateX(0deg);
+            }
+
+
+            80% {
+                transform: perspective(1000px) rotateX(2700deg);
+            }
+
+            95% {
+                transform: perspective(1000px) rotateX(2700deg);
+            }
+            
+
+            100% {
+                transform: perspective(1000px) rotateX(2690deg);
+            }
+        }
+
+        @keyframes shining {
+            0% {
+                box-shadow: 0px 0px 18px 1px rgba(255,255,255,1);
+            }
+
+            100% {
+                box-shadow: 0px 0px 18px -7px rgba(255,255,255,1);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <button class="close__btn" data-action="close"><img src="http://simpleicon.com/wp-content/uploads/cross.png" alt=""></button>
+        <h2 class="title">
+            <span class="letter" style="color: #fefe03;">F</span>
+            <span class="letter" style="color: #fb0000;">r</span>
+            <span class="letter" style="color: #03fe05;">u</span>
+            <span class="letter" style="color: #fefe03;">i</span>
+            <span class="letter" style="color: #05fefd;">t</span>
+            <br>
+            <span class="letter" style="color: #fefe03;">C</span>
+            <span class="letter" style="color: #fc05fc;">o</span>
+            <span class="letter" style="color: #03fe05;">c</span>
+            <span class="letter" style="color: #fefe03;">k</span>
+            <span class="letter" style="color: #fefe03;">t</span>
+            <span class="letter" style="color: #05fefd;">a</span>
+            <span class="letter" style="color: #fefe03;">i</span>
+            <span class="letter" style="color: #05fefd;">l</span>
+        </h2>
+        
+        
+        
+        <section class="carousel">
+            <div class="box">
+                <div>
+                     <span class="slide"><img src="http://detiru.net/wp-content/uploads/2016/08/the-number-of-7.png"></span>
+                     <span class="slide"><img src="http://png-images.ru/wp-content/uploads/2014/11/cherry_PNG3087-149x170.png"></span>
+                     <span class="slide"><img src="http://s1.iconbird.com/ico/2014/1/633/w512h5121390857271USD512.png"></span>
+                     <span class="slide"><img src="http://pngimg.com/uploads/banana/banana_PNG838.png"></span>
+                </div>
+                <div>
+                     <span class="slide"><img src="https://i.pinimg.com/originals/7b/b1/9b/7bb19b577924f9f735ab390dd9a8dbab.png"></span>
+                     <span class="slide"><img src="https://avatanplus.com/files/resources/mid/580bbdf45a64a157edde0292.png"></span>
+                     <span class="slide"><img src="https://vignette.wikia.nocookie.net/knife-hit/images/a/a9/UB6.png/revision/latest?cb=20180513191119&path-prefix=ru"></span>
+                     <span class="slide"><img src="http://pngimg.com/uploads/orange/orange_PNG806.png"></span>
+                 </div>
+            </div>
+            <div class="box">
+                <div>
+                     <span class="slide"><img src="http://detiru.net/wp-content/uploads/2016/08/the-number-of-7.png"></span>
+                     <span class="slide"><img src="http://png-images.ru/wp-content/uploads/2014/11/cherry_PNG3087-149x170.png"></span>
+                     <span class="slide"><img src="http://s1.iconbird.com/ico/2014/1/633/w512h5121390857271USD512.png"></span>
+                     <span class="slide"><img src="http://pngimg.com/uploads/banana/banana_PNG838.png"></span>
+                </div>
+                <div>
+                     <span class="slide"><img src="https://i.pinimg.com/originals/7b/b1/9b/7bb19b577924f9f735ab390dd9a8dbab.png"></span>
+                     <span class="slide"><img src="https://avatanplus.com/files/resources/mid/580bbdf45a64a157edde0292.png"></span>
+                     <span class="slide"><img src="https://vignette.wikia.nocookie.net/knife-hit/images/a/a9/UB6.png/revision/latest?cb=20180513191119&path-prefix=ru"></span>
+                     <span class="slide"><img src="http://pngimg.com/uploads/orange/orange_PNG806.png"></span>
+                 </div>
+            </div>
+            <div class="box">
+                <div>
+                     <span class="slide"><img src="http://detiru.net/wp-content/uploads/2016/08/the-number-of-7.png"></span>
+                     <span class="slide"><img src="http://png-images.ru/wp-content/uploads/2014/11/cherry_PNG3087-149x170.png"></span>
+                     <span class="slide"><img src="http://s1.iconbird.com/ico/2014/1/633/w512h5121390857271USD512.png"></span>
+                     <span class="slide"><img src="http://pngimg.com/uploads/banana/banana_PNG838.png"></span>
+                </div>
+                <div>
+                     <span class="slide"><img src="https://i.pinimg.com/originals/7b/b1/9b/7bb19b577924f9f735ab390dd9a8dbab.png"></span>
+                     <span class="slide"><img src="https://avatanplus.com/files/resources/mid/580bbdf45a64a157edde0292.png"></span>
+                     <span class="slide"><img src="https://vignette.wikia.nocookie.net/knife-hit/images/a/a9/UB6.png/revision/latest?cb=20180513191119&path-prefix=ru"></span>
+                     <span class="slide"><img src="http://pngimg.com/uploads/orange/orange_PNG806.png"></span>
+                 </div>
+            </div>
+            <div class="box">
+                <div>
+                     <span class="slide"><img src="http://detiru.net/wp-content/uploads/2016/08/the-number-of-7.png"></span>
+                     <span class="slide"><img src="http://png-images.ru/wp-content/uploads/2014/11/cherry_PNG3087-149x170.png"></span>
+                     <span class="slide"><img src="http://s1.iconbird.com/ico/2014/1/633/w512h5121390857271USD512.png"></span>
+                     <span class="slide"><img src="http://pngimg.com/uploads/banana/banana_PNG838.png"></span>
+                </div>
+                <div>
+                     <span class="slide"><img src="https://i.pinimg.com/originals/7b/b1/9b/7bb19b577924f9f735ab390dd9a8dbab.png"></span>
+                     <span class="slide"><img src="https://avatanplus.com/files/resources/mid/580bbdf45a64a157edde0292.png"></span>
+                     <span class="slide"><img src="https://vignette.wikia.nocookie.net/knife-hit/images/a/a9/UB6.png/revision/latest?cb=20180513191119&path-prefix=ru"></span>
+                     <span class="slide"><img src="http://pngimg.com/uploads/orange/orange_PNG806.png"></span>
+                 </div>
+            </div>
+            <div class="box">
+                <div>
+                     <span class="slide"><img src="http://detiru.net/wp-content/uploads/2016/08/the-number-of-7.png"></span>
+                     <span class="slide"><img src="http://png-images.ru/wp-content/uploads/2014/11/cherry_PNG3087-149x170.png"></span>
+                     <span class="slide"><img src="http://s1.iconbird.com/ico/2014/1/633/w512h5121390857271USD512.png"></span>
+                     <span class="slide"><img src="http://pngimg.com/uploads/banana/banana_PNG838.png"></span>
+                </div>
+                <div>
+                     <span class="slide"><img src="https://i.pinimg.com/originals/7b/b1/9b/7bb19b577924f9f735ab390dd9a8dbab.png"></span>
+                     <span class="slide"><img src="https://avatanplus.com/files/resources/mid/580bbdf45a64a157edde0292.png"></span>
+                     <span class="slide"><img src="https://vignette.wikia.nocookie.net/knife-hit/images/a/a9/UB6.png/revision/latest?cb=20180513191119&path-prefix=ru"></span>
+                     <span class="slide"><img src="http://pngimg.com/uploads/orange/orange_PNG806.png"></span>
+                 </div>
+            </div>
+            <div class="wall"></div>
+        </section>
+        <button class="play__btn">Play now</button>
+    </div>
+    
+    <script>
+        document.querySelector('.close__btn').addEventListener('click', () => {
+            document.querySelector('.banner').classList.add('hidden');
+        })
+    </script>
+</body>
+</html>
